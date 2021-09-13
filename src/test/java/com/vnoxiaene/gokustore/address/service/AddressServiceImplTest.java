@@ -91,7 +91,7 @@ class AddressServiceImplTest {
                 .id(UUID.fromString("fe18f464-40fb-40e3-b9cf-dc5851d1e2d9"))
                 .build();
 
-        addressService.update(addressDTO2);
+        addressService.update(UUID.fromString("fe18f464-40fb-40e3-b9cf-dc5851d1e2d9"), addressDTO2);
         verify(repository, atLeastOnce()).save(address3);
     }
 

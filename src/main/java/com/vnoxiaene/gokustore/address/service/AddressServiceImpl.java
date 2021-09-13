@@ -35,11 +35,11 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void update(AddressDTO addressDTO) {
+    public void update(UUID id,AddressDTO addressDTO) {
         if(addressDTO.getId() == null){
             throw new IdNotFoundException("Para atualizar o endereco é necessário o id");
         }else{
-            Optional<Address> optionalAddress = addressRepository.findById(addressDTO.getId());
+            Optional<Address> optionalAddress = addressRepository.findById(id);
             if(optionalAddress.isPresent()){
                 var address = AddressMapper.ADDRESS_MAPPER.dtoToEntity(addressDTO);
                 addressRepository.save(address);

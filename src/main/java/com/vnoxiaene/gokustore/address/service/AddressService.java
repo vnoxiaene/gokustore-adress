@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface AddressService {
 
     AddressDTO save(AddressDTO addressDTO);
-    void update(AddressDTO addressDTO);
+    void update(UUID id, AddressDTO addressDTO);
     void delete(UUID id);
     List<AddressDTO> findAllAddressesByCEP(String cep);
     List<AddressDTO> findAddressesWithPaginationByCEP(String cep, Pageable pageable);
